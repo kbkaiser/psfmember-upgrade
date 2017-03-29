@@ -35,12 +35,12 @@ To force the install of php 5.3, add to ``/etc/apt/preferences``::
   Pin-priority: 101
   
 
-Do an update, then force a down-grade on php5 to 5.3 to avoid error messages in
-the logs and a bug with php5.4 on 4.2.1/7.16
+Do an update, then force a down-grade on php5 to 5.3 to avoid massive error
+messages in the logs and a bug with php5.4 on Civi 4.2.1 / Drupal 7.16
 https://forum.civicrm.org/index.php?topic=26601.0::
 
   # apt-get update
-  # apt-get install php5-common php-pear
+  # apt-get install php5-cli php-pear
 
 .. 
  psfmember-dev:/home/kbk# apt-get install php5-common php-pear
@@ -139,13 +139,13 @@ https://forum.civicrm.org/index.php?topic=26601.0::
   create mode 100644 php5/conf.d/suhosin.ini
 
 
-This action removed drupal6 and php5-gd, re-install
+This action removed drupal6 and php5-gd, re-install.  Also add drush.
 
 **N.B. Reject the option to remove the drupal6 database** ::
 
   
   # apt-get install drupal6 php5-gd
-
+  # apt-get install drush
 .. 
   psfmember-dev:/home/kbk# apt-get install drupal6
   Reading package lists... Done
