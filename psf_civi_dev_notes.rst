@@ -1,4 +1,7 @@
-28 March 2017: 
+Clone psfmember.org and Downgrade php
+=====================================
+
+.. 28 March 2017: 
 
 Starting with a Rackspace clone of psfmember.org named psfmember-dev
 192.237.176.114
@@ -188,7 +191,7 @@ This action removed drupal6 and php5-gd, re-install:
    create mode 120000 drupal/6/sites/default/files
    create mode 100644 php5/conf.d/gd.ini
 
-Create ``/etc/apache2/sites-available/dev-rs.psfmember.org::
+Create ``/etc/apache2/sites-available/dev-rs.psfmember.org``::
 
   <VirtualHost *:80>
 	  ServerName dev-rs.psfmember.org
