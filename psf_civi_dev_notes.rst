@@ -235,6 +235,19 @@ Enable the site and restart apache::
 
 (Set the Rackspace Cloud DNS to get an A record for dev-rs.psfmember.org)
 
-Navigate to dev-rs.psfmember.org and check the site.  Review the status report
-and confirm we have php 5.3.
+Navigate to dev-rs.psfmember.org, log in, and check the site.  Review the
+Drupal status report and confirm we have php 5.3.
+
+Install the CiviCRM Files Needed for Upgrade
+=============================================
+
+These files are available from
+https://sourceforge.net/projects/civicrm/files/civicrm-stable/ ::
+
+  4.1.6
+  4.2.20
+  4.3.11
+  4.4.6
+  4.5.8
+  4.6.27
 
