@@ -4,6 +4,7 @@ Starting with a Rackspace clone of psfmember.org named psfmember-dev
 192.237.176.114
 
 Stop postfix and disable::
+
   # /etc/init.d/postfix stop
   # update-rc.d postfix disable
 
@@ -220,7 +221,7 @@ Create ``/etc/apache2/sites-available/dev-rs.psfmember.org::
 	      Include /usr/share/drupal6/.htaccess
   </Directory>
 
-Enable the site and restart apache
+Enable the site and restart apache::
 
   # a2ensite dev-rs-psfmember.org
   # apachectl graceful
