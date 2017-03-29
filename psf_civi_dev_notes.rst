@@ -16,7 +16,7 @@ Add to ``/etc/apt/sources``::
   # Needed for php 5.3 and drupal6:
   deb http://archive.debian.org/debian/ squeeze main
 
-Add to ``/etc/apt/preferences``::
+To force the install of php 5.3, add to ``/etc/apt/preferences``::
 
   Package: php5*
   Pin: version 5.3.3*
@@ -192,7 +192,7 @@ This action removed drupal6 and php5-gd, re-install
    create mode 120000 drupal/6/sites/default/files
    create mode 100644 php5/conf.d/gd.ini
 
-Create ``/etc/apache2/sites-available/dev-rs.psfmember.org``::
+Create ``/etc/apache2/sites-available/dev-rs.psfmember.org`` from ``psfmember.org``::
 
   <VirtualHost *:80>
 	  ServerName dev-rs.psfmember.org
@@ -228,7 +228,7 @@ Create ``/etc/apache2/sites-available/dev-rs.psfmember.org``::
 
 Enable the site and restart apache::
 
-  # a2ensite dev-rs-psfmember.org
+  # a2ensite dev-rs.psfmember.org
   # apachectl graceful
 
 (Set the Rackspace Cloud DNS to get an A record for dev-rs.psfmember.org)
