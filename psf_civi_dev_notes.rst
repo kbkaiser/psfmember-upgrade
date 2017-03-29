@@ -1,6 +1,6 @@
-* 28 March 2017: 
+28 March 2017: 
 
-Starting with a Rackspace clone of psfmember.org call psfmember-dev
+Starting with a Rackspace clone of psfmember.org named psfmember-dev
 192.237.176.114
 
 Stop postfix and disable::
@@ -29,6 +29,8 @@ Add to ``/etc/apt/preferences``::
   Package: drush
   Pin: version 3.3.1*
   Pin-priority: 101
+
+..
 
 Do an update, which will down-grade php5 to 5.3::
   # apt-get update
