@@ -37,7 +37,6 @@ Do an update, which will down-grade php5 to 5.3::
   # apt-get install php5-common php-pear
 
 .. 
-
  psfmember-dev:/home/kbk# apt-get install php5-common php-pear
  Reading package lists... Done
  Building dependency tree       
@@ -135,7 +134,9 @@ Do an update, which will down-grade php5 to 5.3::
 
 *N.B. Reject the option to remove the drupal6 database*
 
-This action removed drupal6 and php5-gd.
+This action removed drupal6 and php5-gd, re-install:
+
+  # apt-get install drupal6 php5-gd
 
 .. 
   psfmember-dev:/home/kbk# apt-get install drupal6
@@ -219,12 +220,9 @@ Create ``/etc/apache2/sites-available/dev-rs.psfmember.org::
 	      Include /usr/share/drupal6/.htaccess
   </Directory>
 
-Enable the site::
+Enable the site and restart apache
 
   # a2ensite dev-rs-psfmember.org
-
-Restart apache2::
-
   # apachectl graceful
 
 (Set the Rackspace Cloud DNS to get an A record for dev-rs.psfmember.org)
