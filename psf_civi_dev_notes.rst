@@ -35,7 +35,9 @@ To force the install of php 5.3, add to ``/etc/apt/preferences``::
   Pin-priority: 101
   
 
-Do an update, which will down-grade php5 to 5.3::
+Do an update, then force a down-grade on php5 to 5.3 to avoid error messages in
+the logs and a bug with php5.4 on 4.2.1/7.16
+https://forum.civicrm.org/index.php?topic=26601.0::
 
   # apt-get update
   # apt-get install php5-common php-pear
