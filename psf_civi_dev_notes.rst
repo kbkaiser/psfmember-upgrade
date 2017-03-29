@@ -136,9 +136,10 @@ Do an update, which will down-grade php5 to 5.3::
   create mode 100644 php5/conf.d/pdo_mysql.ini
   create mode 100644 php5/conf.d/suhosin.ini
 
-*N.B. Reject the option to remove the drupal6 database*
 
-This action removed drupal6 and php5-gd, re-install:
+This action removed drupal6 and php5-gd, re-install
+
+**N.B. Reject the option to remove the drupal6 database** ::
 
   
   # apt-get install drupal6 php5-gd
