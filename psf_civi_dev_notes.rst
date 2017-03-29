@@ -10,7 +10,7 @@ Stop postfix and disable::
 
 Add to ``/etc/apt/sources``::
 
-  # Needed for drupal6:
+  # Needed for php 5.3 and drupal6:
   deb http://archive.debian.org/debian/ squeeze main
 
 Add to ``/etc/apt/preferences``::
@@ -137,6 +137,7 @@ Do an update, which will down-grade php5 to 5.3::
 
 This action removed drupal6 and php5-gd, re-install:
 
+  
   # apt-get install drupal6 php5-gd
 
 .. 
