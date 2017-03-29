@@ -29,8 +29,7 @@ Add to ``/etc/apt/preferences``::
   Package: drush
   Pin: version 3.3.1*
   Pin-priority: 101
-
-..
+  *
 
 Do an update, which will down-grade php5 to 5.3::
   # apt-get update
