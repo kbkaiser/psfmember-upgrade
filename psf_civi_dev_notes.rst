@@ -355,7 +355,7 @@ Copy the drupal6 db to drupal7.  This works only because the db is ISAM::
   # rm -rf drupal7
   # cp -ar drupal6 drupal7
 
-Copy the CiviCRM files from the D6 to the D7 tree;:
+Copy the CiviCRM files from the D6 to the D7 tree::
 
   # cd /var/lib/drupal7
   # rm -rf files
@@ -386,8 +386,6 @@ Configure the copied civicrm.settings.php for Drupal 7::
   define( 'CIVICRM_UF'               , 'Drupal'        );
 
   Was:
-
   define( 'CIVICRM_UF_DSN' , 'mysql://drupal6:0MhAQL0wh87s@localhost/drupal6?new_link=true' );
-
   Is:
   define( 'CIVICRM_UF_DSN' , 'mysql://drupal7:0MhAQL0wh87s@localhost/drupal7?new_link=true' );
