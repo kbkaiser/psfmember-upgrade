@@ -272,7 +272,7 @@ configuration.
 
 Shutdown and take a Rackspace image of the server at this point.
 
-Upgrade to CiviCRM 3.3.8
+Upgrade to CiviCRM 3.4.8
 ==========================
 
 Restart the server.
@@ -355,5 +355,39 @@ Copy the drupal6 db to drupal7.  This works only because the db is ISAM::
   # rm -rf drupal7
   # cp -ar drupal6 drupal7
 
+Copy the CiviCRM files from the D6 to the D7 tree;:
 
+  # cd /var/lib/drupal7
+  # rm -rf files
+  # cd /var/lib/drupal6
+  # cp -ar files /var/lib/drupal7
 
+Copy the D7 .htaccess file into the files directory::
+
+  # cd /var/lib/drupal7/files
+  # cp -a /usr/share/doc/drupal7/file.htaccess .htaccess
+  # chown www-data:www-data .htaccess
+  # chmod 644 .htaccess
+
+Copy the virtual host files into the D7 tree::
+
+  # cd /etc/drupal/7/sites
+  # cp -ar default psfmember.org
+  # cp -a /etc/drupal/6/sites/psfmember.org/civicrm.settings.php psfmember.org
+
+Configure the copied civicrm.settings.php for Drupal 7::
+
+  # cd /etc/drupal/7/sites/psfmember.org
+
+  Edit the file.
+  Was:
+  define( 'CIVICRM_UF'               , 'Drupal6'        );
+  Is:
+  define( 'CIVICRM_UF'               , 'Drupal'        );
+
+  Was:
+
+  define( 'CIVICRM_UF_DSN' , 'mysql://drupal6:0MhAQL0wh87s@localhost/drupal6?new_link=true' );
+
+  Is:
+  define( 'CIVICRM_UF_DSN' , 'mysql://drupal7:0MhAQL0wh87s@localhost/drupal7?new_link=true' );
