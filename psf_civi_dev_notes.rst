@@ -194,10 +194,10 @@ This action removed drupal6 and php5-gd, re-install.  Also add drush.
    create mode 120000 drupal/6/sites/default/files
    create mode 100644 php5/conf.d/gd.ini
 
-Create ``/etc/apache2/sites-available/dev-rs.psfmember.org`` from ``psfmember.org``::
+Create ``/etc/apache2/sites-available/dev-rs6.psfmember.org`` from ``psfmember.org``::
 
   <VirtualHost *:80>
-	  ServerName dev-rs.psfmember.org
+	  ServerName dev-rs6.psfmember.org
 	  ##ServerAlias www.psfmember.org psfmember.net www.psfmember.net psfmembe\
   r.com www.psfmember.com
 	  ##RedirectPermanent / https://psfmember.org/
@@ -230,10 +230,10 @@ Create ``/etc/apache2/sites-available/dev-rs.psfmember.org`` from ``psfmember.or
 
 Enable the site and restart apache::
 
-  # a2ensite dev-rs.psfmember.org
+  # a2ensite dev-rs6.psfmember.org
   # apachectl graceful
 
-(Set the Rackspace Cloud DNS to get an A record for dev-rs.psfmember.org)
+(Set the Rackspace Cloud DNS to get an A record for dev-rs6.psfmember.org)
 
 Navigate to dev-rs.psfmember.org, log in, and check the site.  Review the
 Drupal status report and confirm we have php 5.3.
@@ -377,9 +377,8 @@ Copy the virtual host files into the D7 tree::
 
 Configure the copied civicrm.settings.php for Drupal 7::
 
-  # cd /etc/drupal/7/sites/psfmember.org
+  Edit /etc/drupal/7/sites/psfmember.org
 
-  Edit the file.
   Was:
   define( 'CIVICRM_UF'               , 'Drupal6'        );
   Is:
@@ -389,3 +388,70 @@ Configure the copied civicrm.settings.php for Drupal 7::
   define( 'CIVICRM_UF_DSN' , 'mysql://drupal6:0MhAQL0wh87s@localhost/drupal6?new_link=true' );
   Is:
   define( 'CIVICRM_UF_DSN' , 'mysql://drupal7:0MhAQL0wh87s@localhost/drupal7?new_link=true' );
+
+  Was:
+  $civicrm_root = '/usr/share/drupal6/sites/all/modules/civicrm';
+  Is:
+  $civicrm_root = '/usr/share/drupal7/sites/all/modules/civicrm';
+  Was:
+
+  define( 'CIVICRM_TEMPLATE_COMPILEDIR', '/usr/share/drupal6/sites/psfmember.or	g/files/civicrm/templates_c/' );
+  Is:
+  define( 'CIVICRM_TEMPLATE_COMPILEDIR', '/usr/share/drupal7/sites/psfmember.org/files/civicrm/templates_c/' );
+
+  Was:
+  define( 'CIVICRM_TEMPLATE_COMPILEDIR', '/usr/share/drupal6/sites/psfmember.org/files/civicrm/templates_c/' );
+  Is:
+  define( 'CIVICRM_TEMPLATE_COMPILEDIR', '/usr/share/drupal7/sites/psfmember.org/files/civicrm/templates_c/' );
+
+  Was:
+  define( 'CIVICRM_MAIL_LOG', '/usr/share/drupal6/sites/dev-do.psfmember.org/files/civicrm/templates_c//mail.log' );
+  Is:
+  define( 'CIVICRM_MAIL_LOG', '/usr/share/drupal7/sites/dev-do.psfmember.org/files/civicrm/templates_c//mail.log' );
+
+Copy the D6 CiviCRM .../sites/all tree into the D7 location::
+
+  # cd /etc/drupal/7/sites
+  # cp -ar /etc/drupal/6/sites/all/ all
+
+Remove the D6 CiviCRM tarballs:
+  
+  # cd /etc/drupal/7/sites/all/modules
+  # rm civicrm-3* civicrm-4.1.6-drupal6.tar.gz
+
+Install the D7 CiviCRM 4.1.6 files:
+
+  # rm -rf civicrm
+  # tar xzvf civicrm-4.1.6-drupal.tar.gz
+
+Setup access to the D7 site. First, set the Rackspace Cloud DNS to get an A
+record for dev-rs7.psfmember.org. Then, add to
+/etc/apache2/sites-enabled/dev-rs7.psfmember.org::
+
+  <VirtualHost *:80>
+          ServerName dev-rs7.psfmember.org
+          ##ServerAlias www.psfmember.org psfmember.net www.psfmember.net psfme\
+mbe\
+  r.com www.psfmember.com
+          ##RedirectPermanent / https://psfmember.org/
+          DocumentRoot /usr/share/drupal7/
+          ServerAdmin webmaster@localhost
+  </VirtualHost>
+
+  <Directory /usr/share/drupal6/>
+             Options +FollowSymLinks
+             AllowOverride None
+             order allow,deny
+             allow from all
+             <IfModule mod_rewrite.c>
+              RewriteBase /
+              </IfModule>
+              Include /usr/share/drupal6/.htaccess
+  </Directory>
+
+Enable the site and restart apache::
+
+  # a2ensite dev-rs7.psfmember.org
+  # apachectl graceful
+
+
