@@ -272,8 +272,8 @@ configuration.
 
 Shutdown and take a Rackspace image of the server at this point.
 
-Upgrade to CiviCRM3.3.8
-=======================
+Upgrade to CiviCRM 3.3.8
+==========================
 
 Restart the server.
 
@@ -286,7 +286,7 @@ Clear the cache and templates_c::
   # popd
   # drush -v -r /usr/share/drupal6 -l dev-rs.psfmember.org -s cc all
 
-Remove the CiviCRM files and install 3.4.8;;
+Remove the CiviCRM files and install 3.4.8::
 
   # cd /etc/drupal/6/sites/all/modules
   # rm -rf civicrm
@@ -332,8 +332,28 @@ is to be the same as the drupal6 mysql user.
 
 .. 
   If db access issues, verify this 
-  mysql> grant usage on *.* to drupal7@localhost identified by '0MhAQL0wh87s'
+  mysql> grant usage on *.* to drupal7@localhost identified by <pw>
+  mysql> grant all on drupal7.* to drupal7@localhost
 
+.. https://wiki.civicrm.org/confluence/display/CRMDOC/CiviCRM+MySQL+Permission+Requirements
+
+Clean up the msql access rights for user civicrm::
+
+  mysql> drop user civicrm;
+
+  mysql> drop user civicrm@localhost;
+
+  mysql> create user civicrm@localhost identified by <pw>
+
+  mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
+  	 CREATE TEMPORARY TABLES, LOCK TABLES, TRIGGER, CREATE ROUTINE, ALTER
+  	 ROUTINE, CREATE VIEW ON civicrm.* TO 'civicrm'@'localhost'
+
+Copy the drupal6 db to drupal7.  This works only because the db is ISAM::
+
+  # cd /var/lib/mysql
+  # rm -rf drupal7
+  # cp -ar drupal6 drupal7
 
 
 
