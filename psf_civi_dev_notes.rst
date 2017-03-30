@@ -265,6 +265,8 @@ their files.
 
 Disable LogToboggan and LoginToboggan Rules Integration
 
+Turn off caching at ``http://dev-rs.psfmember.org/admin/settings/performance``
+
 Take screenshots of the Drupal module configuration and the Garland theme
 configuration.
 
@@ -297,3 +299,20 @@ Run the CiviCRM upgrade, followed by a Drupal update::
 
 Upgrade to CiviCRM 4.1.6
 ========================
+
+Follow the previous pattern, clear the caches and install the Drupal 6 version
+of CiviCRM 4.1.6 (note the drupal6 in the file specification)::
+
+  # tar xzvf civicrm-4.1.6-drupal6.tar.gz 
+
+Change the configuration of ``../sites/psfmember.org/civicrm.settings.php`` and
+``../sites/default/civicrm.settings.php``::
+
+  define( 'CIVICRM_UF'               , 'Drupal'        );
+
+  to
+
+  define( 'CIVICRM_UF'               , 'Drupal6'        );
+
+
+
