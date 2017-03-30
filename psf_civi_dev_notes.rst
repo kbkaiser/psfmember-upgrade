@@ -414,12 +414,12 @@ Copy the D6 CiviCRM .../sites/all tree into the D7 location::
   # cd /etc/drupal/7/sites
   # cp -ar /etc/drupal/6/sites/all/ all
 
-Remove the D6 CiviCRM tarballs:
+Remove the D6 CiviCRM tarballs::
   
   # cd /etc/drupal/7/sites/all/modules
   # rm civicrm-3* civicrm-4.1.6-drupal6.tar.gz
 
-Install the D7 CiviCRM 4.1.6 files:
+Install the D7 CiviCRM 4.1.6 files::
 
   # rm -rf civicrm
   # tar xzvf civicrm-4.1.6-drupal.tar.gz
