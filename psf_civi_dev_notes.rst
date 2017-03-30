@@ -314,5 +314,26 @@ Change the configuration of ``../sites/psfmember.org/civicrm.settings.php`` and
 
   define( 'CIVICRM_UF'               , 'Drupal6'        );
 
+Run the CiviCRM upgrade, followed by a Drupal update::
+
+  http://dev-rs.psfmember.org/civicrm/upgrade?reset=1
+  http://dev-rs.psfmember.org/update.php
+
+Switch to Drupal 7
+==================
+
+Install Drupal 7::
+
+  # apt-get install drupal7
+
+Select "Yes" to configure a drupal7 mysql database. There are two passwords
+requests.  The first is for the root user to access mysql. The second password
+is to be the same as the drupal6 mysql user.
+
+.. 
+  If db access issues, verify this 
+  mysql> grant usage on *.* to drupal7@localhost identified by '0MhAQL0wh87s'
+
+
 
 
