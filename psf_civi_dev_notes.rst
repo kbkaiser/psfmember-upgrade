@@ -430,9 +430,7 @@ record for dev-rs7.psfmember.org. Then, add to
 
   <VirtualHost *:80>
           ServerName dev-rs7.psfmember.org
-          ##ServerAlias www.psfmember.org psfmember.net www.psfmember.net psfme\
-mbe\
-  r.com www.psfmember.com
+          ##ServerAlias www.psfmember.org psfmember.net www.psfmember.net psfmember.com www.psfmember.com
           ##RedirectPermanent / https://psfmember.org/
           DocumentRoot /usr/share/drupal7/
           ServerAdmin webmaster@localhost
