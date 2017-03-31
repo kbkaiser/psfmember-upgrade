@@ -260,8 +260,10 @@ Prepare Drupal / CiviCRM for Upgrade
 
 Take the Drupal site offline
 
+Disable all the CiviCRM modules except the base module. Leave that enabled.
+
 Disable the Drupal devel and frontpage modules, then uninstall them.  Delete
-their files.
+their files. Do the same for the CiviCRM theme module.
 
 Disable LogToboggan and LoginToboggan Rules Integration
 
@@ -475,4 +477,59 @@ Navigate to dev-rs7.psfmember.org/update.php
 This will spin for a couple of minutes, and then open the update
 webpage. Continue with the update.  The next screen will be a list of changes.
 Take a screen shot.
+
+Clear update free access::
+
+  edit /etc/drupal/7/sites/psfmember.org
+  Change: $update_free_access = FALSE;
+
+Navigate to dev-rs7.psfmember.org/login/ and log in as Drupal user 1. In this
+case, that is user psf.
+
+Navigate to .../civicrm/  You are now running CiviCRM 4.1.6 in D7.
+
+Set the Drupal 7 cron key::
+  
+  The key can be found in the Drupal Status Report.
+
+  edit .../sites/psfmember.org/settings.php
+
+  Was:
+  # $cron_key = '<cron_key>';
+  Is:
+  $cron_key = 'h8euBg5LHiBXLfTi3xUSw8pRqy5opGd4X5anx4pkm2Q';
+
+Uninstall D6 Modules:  The following modules need to be disabled and uninstalled in Drupal Modules page, then delete their files in ``...sites/all/modules``
+
+  Advanced Help
+  Civicrm Theme
+  Ckeditor
+  Jquery Update
+  Logintoboggan
+  Node Privacy by Role
+  Rules
+  Wysiwyg
+
+Uninstall CiviGroup Roles Sync and CiviMember Roles Sync
+
+Install D7 versions of the following modules::
+
+  Advanced Help
+  Ckeditor
+  Entity API
+  Jquery Update
+  Logintoboggan
+  Rules
+  Wysiwyg Version 7.x-2.2 only!
+
+Enable those modules.
+
+Shutdown and take a Rackspace image.
+
+Upgrade CiviCRM by Minor Versions
+=================================
+
+
+
+
 
