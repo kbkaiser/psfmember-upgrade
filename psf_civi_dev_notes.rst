@@ -6,6 +6,10 @@ Clone psfmember.org and Downgrade php
 Starting with a Rackspace clone of psfmember.org named psfmember-dev
 192.237.176.114
 
+This site is running Debian's drupal6 package, which is 6.31 patched for
+security issues, and downloaded CiviCRM 3.3.6.  The server is running Debian
+Squeeze LTS.
+
 Stop postfix and disable::
 
   # service postfix stop
