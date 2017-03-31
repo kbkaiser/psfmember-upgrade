@@ -665,4 +665,4 @@ Take the D7 site out of maintenance mode.
 
 Research how to replace the missing Front Page module.
 
-You can also take dev-d6.psbmember.org out of maintenance mode, if useful.
+You can also take dev-d6.psfmember.org out of maintenance mode, if useful.
