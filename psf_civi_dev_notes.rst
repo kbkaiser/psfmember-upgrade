@@ -241,7 +241,7 @@ Drupal status report and confirm we have php 5.3.
 .. * 29 March 2017:
 
 Download  the CiviCRM Files Needed for Upgrade
-=============================================
+================================================
 
 These files are available from
 https://sourceforge.net/projects/civicrm/files/civicrm-stable/ ::
@@ -454,9 +454,11 @@ Enable the site and restart apache::
 
 Take a Rackspace image at this point.
 
-Perform the Drupal 7 upgrade::
+Perform the Drupal 7 Upgrade
+===============================
 
-.. Tried an update.php.
+..
+   Tried an update.php.
    "The website encountered an upexpected error"
    Set $update_free_access=TRUE; in .../sites/psfmember.org/settings.php
    Repeat the update.php
