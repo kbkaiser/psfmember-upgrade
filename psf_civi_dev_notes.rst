@@ -263,7 +263,8 @@ Take the Drupal site offline
 Disable all the CiviCRM modules except the base module. Leave that enabled.
 
 Disable the Drupal devel and frontpage modules, then uninstall them.  Delete
-their files. Do the same for the CiviCRM theme module.
+their files. Do the same for the CiviCRM theme module. Remove the SimplyCivi
+files from ``.../sites/all/themes/``
 
 Disable LogToboggan and LoginToboggan Rules Integration
 
@@ -284,7 +285,7 @@ Disable all the CiviCRM modules except CiviCRM itself.
 Clear the cache and templates_c::
 
   # pushd /var/lib/drupal6/files/civicrm/templates_c/
-  # rm -rf en_US
+  # rm -rf en_US/*
   # popd
   # drush -v -r /usr/share/drupal6 -l dev-rs6.psfmember.org -s cc all
 
@@ -292,7 +293,7 @@ Remove the CiviCRM files and install 3.4.8::
 
   # cd /etc/drupal/6/sites/all/modules
   # rm -rf civicrm
-  # tar xzvf 
+  # tar xzvf civicrm-3.4.8-drupal.tar.gz
 
 Run the CiviCRM upgrade, followed by a Drupal update::
 
@@ -603,7 +604,7 @@ Then, at the very end of the file, add these lines::
 Clear the caches and delete templates_c::
 
   # cd /var/lib/drupal7/files/civicrm/templates_c
-  # rm -rf en_US
+  # rm -rf en_US/*
 
   # drush -v -r /usr/share/drupal7 -l dev-rs7.psfmember.org -s cc all
 
