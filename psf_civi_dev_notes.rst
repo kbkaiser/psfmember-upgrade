@@ -235,7 +235,7 @@ Enable the site and restart apache::
 
 (Set the Rackspace Cloud DNS to get an A record for dev-rs6.psfmember.org)
 
-Navigate to dev-rs.psfmember.org, log in, and check the site.  Review the
+Navigate to dev-rs6.psfmember.org, log in, and check the site.  Review the
 Drupal status report and confirm we have php 5.3.
 
 .. * 29 March 2017:
@@ -267,7 +267,7 @@ their files. Do the same for the CiviCRM theme module.
 
 Disable LogToboggan and LoginToboggan Rules Integration
 
-Turn off caching at ``http://dev-rs.psfmember.org/admin/settings/performance``
+Turn off caching at ``http://dev-rs6.psfmember.org/admin/settings/performance``
 
 Take screenshots of the Drupal module configuration and the Garland theme
 configuration.
@@ -286,7 +286,7 @@ Clear the cache and templates_c::
   # pushd /var/lib/drupal6/files/civicrm/templates_c/
   # rm -rf en_US
   # popd
-  # drush -v -r /usr/share/drupal6 -l dev-rs.psfmember.org -s cc all
+  # drush -v -r /usr/share/drupal6 -l dev-rs6.psfmember.org -s cc all
 
 Remove the CiviCRM files and install 3.4.8::
 
@@ -296,8 +296,8 @@ Remove the CiviCRM files and install 3.4.8::
 
 Run the CiviCRM upgrade, followed by a Drupal update::
 
-  http://dev-rs.psfmember.org/civicrm/upgrade?reset=1
-  http://dev-rs.psfmember.org/update.php
+  http://dev-rs6.psfmember.org/civicrm/upgrade?reset=1
+  http://dev-rs6.psfmember.org/update.php
 
 Upgrade to CiviCRM 4.1.6
 ========================
@@ -318,8 +318,8 @@ Change the configuration of ``../sites/psfmember.org/civicrm.settings.php`` and
 
 Run the CiviCRM upgrade, followed by a Drupal update::
 
-  http://dev-rs.psfmember.org/civicrm/upgrade?reset=1
-  http://dev-rs.psfmember.org/update.php
+  http://dev-rs6.psfmember.org/civicrm/upgrade?reset=1
+  http://dev-rs6.psfmember.org/update.php
 
 Switch to Drupal 7
 ==================
@@ -656,5 +656,10 @@ Repeat for CiviCRM 4.6.27
 
 .. Turn off Drupal and Civi debugging
 
+.. Evaluate later whether mysql binary logging can be switched back on.
+
 Take the site out of maintenance mode.
+
+Research how to replace the missing Front Page module.
+
 
