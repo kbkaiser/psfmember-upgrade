@@ -340,7 +340,7 @@ is to be the same as the drupal6 mysql user.
 
 .. https://wiki.civicrm.org/confluence/display/CRMDOC/CiviCRM+MySQL+Permission+Requirements
 
-Clean up the msql access rights for user civicrm::
+Clean up the mysql access rights for user civicrm::
 
   mysql> drop user civicrm;
 
@@ -614,10 +614,10 @@ Install civi 4.2.20 files::
 
   # cd .../sites/all/modules
   # rm -rf civicrm
-  # tar xzvf civicrm-4.2.0-drupal.tar.gz
+  # tar xzvf civicrm-4.2.20-drupal.tar.gz
 
 It is necessary to disable mysql binary logging during the upgrade to 4.2.20.
-Temporarily comment out these lines in ``/etc/msql/my.cnf``::
+Temporarily comment out these lines in ``/etc/mysql/my.cnf``::
 
  #log_bin                        = /var/log/mysql/mysql-bin.log
  #expire_logs_days       = 90
@@ -638,7 +638,7 @@ automated patch-up.
 
 Install CiviCRM 4.3.11 files, clear the cache, delete templates.
 
-Do a CiviCRM upgrade.
+Do a CiviCRM upgrade.  Take a screenshot of the notices.
 
 Repeat for CiviCRM 4.4.6
 
@@ -661,8 +661,8 @@ Navigate to dev-r6.psfmember.org/update.php to do a database update.
 
 .. Evaluate later whether mysql binary logging can be switched back on.
 
-Take the site out of maintenance mode.
+Take the D7 site out of maintenance mode.
 
 Research how to replace the missing Front Page module.
 
-
+You can also take dev-d6.psbmember.org out of maintenance mode, if useful.
