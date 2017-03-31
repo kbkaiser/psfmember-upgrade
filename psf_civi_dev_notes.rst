@@ -406,6 +406,14 @@ Configure the copied civicrm.settings.php for Drupal 7::
   Is:
   define( 'CIVICRM_TEMPLATE_COMPILEDIR', '/usr/share/drupal7/sites/psfmember.org/files/civicrm/templates_c/' );
 
+  Is:
+  define( 'CIVICRM_UF_BASEURL'      , 'https://psfmember.org/' );
+  Is:
+  define( 'CIVICRM_UF_BASEURL'      , 'http://dev-rs7.psfmember.org/' );
+
+  Note: the previous change is only needed for a development site, but it is
+  important there to avoid impacting the production site.
+
   Was:
   define( 'CIVICRM_MAIL_LOG', '/usr/share/drupal6/sites/dev-do.psfmember.org/files/civicrm/templates_c//mail.log' );
   Is:
@@ -529,6 +537,12 @@ Shutdown and take a Rackspace image.
 Upgrade CiviCRM by Minor Versions
 =================================
 
+Navigate to http://dev-rs7.psfmember.org/civicrm/admin/setting/misc?reset=1
+and set Logging to "No".  
+Then navigate to http://dev-rs7.psfmember.org/civicrm/admin/setting/debug
+and set Enable Drupal Watchdog to "No"
+This is important!
+
 The ``.../sites/psfmember.org/civicrm.settings.php`` file must have the following text added just above the line reading "Do not change anything below..."::
 
   // These lines should appear just above the line "Do not change anything below this line. Keep as is"
@@ -581,5 +595,66 @@ The ``.../sites/psfmember.org/civicrm.settings.php`` file must have the followin
    */
   define( 'CIVICRM_MEMCACHE_PREFIX', '' );
 
+Then, at the very end of the file, add these lines::
 
+  require_once 'CRM/Core/ClassLoader.php';
+  CRM_Core_ClassLoader::singleton()->register();
+
+Clear the caches and delete templates_c::
+
+  # cd /var/lib/drupal7/files/civicrm/templates_c
+  # rm -rf en_US
+
+  # drush -v -r /usr/share/drupal7 -l dev-rs7.psfmember.org -s cc all
+
+Shutdown and make a Rackspace image.
+
+Install civi 4.2.20 files::
+
+  # cd .../sites/all/modules
+  # rm -rf civicrm
+  # tar xzvf civicrm-4.2.0-drupal.tar.gz
+
+It is necessary to disable mysql binary logging during the upgrade to 4.2.20.
+Temporarily comment out these lines in ``/etc/msql/my.cnf``::
+
+ #log_bin                        = /var/log/mysql/mysql-bin.log
+ #expire_logs_days       = 90
+ #max_binlog_size         = 100M
+
+Restart mysql::
+ 
+ # service mysql restart 
+
+
+Navigate to dev-rs7.psfmember.org/civicrm/upgrade?reset=1
+
+Note: there are four contribution records in this clone that are multiply
+linked.  They will be deleted from the production site.  Here, accept the
+automated patch-up.
+
+.. Made an image at 4.2.20
+
+Install CiviCRM 4.3.11 files, clear the cache, delete templates_c
+
+Do a CiviCRM upgrade.
+
+Repeat for CiviCRM 4.4.6
+
+.. got a whitescreen.  Go back to 4.3.11 files and database.
+
+.. The owner of en_US was root - even though deleted before upgrade.
+   Change owner to www-data, and delete.  Why created by root?
+
+.. Move forward to 4.4.6 with debug. templates_c/en_US was being created by
+   root and didn't have permissions for www-data.  Changed the permissions and
+   didn't delete it, delete the directories under it.
+
+Repeat for CiviCRM 4.5.8
+
+Repeat for CiviCRM 4.6.27
+
+.. Turn off Drupal and Civi debugging
+
+Take the site out of maintenance mode.
 
