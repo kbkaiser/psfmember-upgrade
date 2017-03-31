@@ -452,4 +452,27 @@ Enable the site and restart apache::
   # a2ensite dev-rs7.psfmember.org
   # apachectl graceful
 
+Take a Rackspace image at this point.
+
+Perform the Drupal 7 upgrade::
+
+..
+   Tried an update.php.
+   "The website encountered an upexpected error"
+   Set $update_free_access=TRUE; in .../sites/psfmember.org/settings.php
+   Repeat the update.php
+   This time it got to the update page.
+   136 pending updates
+
+
+Set update free access::
+
+  edit /etc/drupal/7/sites/psfmember.org
+  Change: $update_free_access = TRUE;
+
+Navigate to dev-rs7.psfmember.org/update.php
+
+This will spin for a couple of minutes, and then open the update
+webpage. Continue with the update.  The next screen will be a list of changes.
+Take a screen shot.
 
