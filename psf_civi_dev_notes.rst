@@ -8,7 +8,7 @@ Starting with a Rackspace clone of psfmember.org named psfmember-dev
 
 Stop postfix and disable::
 
-  # /etc/init.d/postfix stop
+  # service postfix stop
   # update-rc.d postfix disable
 
 Add to ``/etc/apt/sources``::
@@ -521,7 +521,7 @@ Uninstall D6 Modules:  The following modules need to be disabled and uninstalled
 
 Uninstall CiviGroup Roles Sync and CiviMember Roles Sync
 
-Install D7 versions of the following modules::
+Download and install D7 versions of the following modules::
 
   Advanced Help
   Ckeditor
@@ -636,7 +636,7 @@ automated patch-up.
 
 .. Made an image at 4.2.20
 
-Install CiviCRM 4.3.11 files, clear the cache, delete templates_c
+Install CiviCRM 4.3.11 files, clear the cache, delete templates.
 
 Do a CiviCRM upgrade.
 
@@ -654,6 +654,8 @@ Repeat for CiviCRM 4.4.6
 Repeat for CiviCRM 4.5.8
 
 Repeat for CiviCRM 4.6.27
+
+Navigate to dev-r6.psfmember.org/update.php to do a database update.
 
 .. Turn off Drupal and Civi debugging
 
