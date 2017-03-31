@@ -456,14 +456,12 @@ Take a Rackspace image at this point.
 
 Perform the Drupal 7 upgrade::
 
-..
-   Tried an update.php.
+.. Tried an update.php.
    "The website encountered an upexpected error"
    Set $update_free_access=TRUE; in .../sites/psfmember.org/settings.php
    Repeat the update.php
    This time it got to the update page.
    136 pending updates
-
 
 Set update free access::
 
