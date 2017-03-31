@@ -499,7 +499,7 @@ Set the Drupal 7 cron key::
   Is:
   $cron_key = 'h8euBg5LHiBXLfTi3xUSw8pRqy5opGd4X5anx4pkm2Q';
 
-Uninstall D6 Modules:  The following modules need to be disabled and uninstalled in Drupal Modules page, then delete their files in ``...sites/all/modules``
+Uninstall D6 Modules:  The following modules need to be disabled and uninstalled in Drupal Modules page, then delete their files in ``...sites/all/modules``::
 
   Advanced Help
   Civicrm Theme
@@ -529,7 +529,57 @@ Shutdown and take a Rackspace image.
 Upgrade CiviCRM by Minor Versions
 =================================
 
+The ``.../sites/psfmember.org/civicrm.settings.php`` file must have the following text added just above the line reading "Do not change anything below..."::
 
+  // These lines should appear just above the line "Do not change anything below this line. Keep as is"
+  /**
+   * This setting logs all emails to a file. Useful for debugging any mail (or civimail) issues.
+   * This will not send any email, so ensure this is commented out in production
+   */
+  // define( 'CIVICRM_MAIL_LOG', '/home/lnp/public_html_test/sites/default/files/civicrm/templates_c/mail.log' );
+
+  /**
+   * Settings to enable external caching using a Memcache server.  This is an
+   * advanced features, and you should read and understand the documentation
+   * before you turn it on.
+   *
+   * @see http://civicrm.org/node/126
+   */
+
+  /**
+   * If you have a memcache server configured and want CiviCRM to make use of it,
+   * set the following to 1.  You should only set this once you have your memcache
+   * server up and working, because CiviCRM will not start up if your server is
+   * unavailable on the host and port that you specify.
+   */
+  define( 'CIVICRM_USE_MEMCACHE', 0 );
+
+  /**
+   * Change this to the IP address of your memcache server if it is not on the
+   * same machine (Unix).
+   */
+  define( 'CIVICRM_MEMCACHE_HOST', 'localhost' );
+
+  /**
+   * Change this if you are not using the standard port for memcache (11211)
+   */
+  define( 'CIVICRM_MEMCACHE_PORT', 11211 );
+
+  /**
+   * Items in cache will expire after the number of seconds specified here.
+   * Default value is 3600 (i.e., after an hour)
+   */
+  define( 'CIVICRM_MEMCACHE_TIMEOUT', 3600 );
+
+  /**
+   * If you are sharing the same memcache instance with more than one CiviCRM
+   * database, you will need to set a different value for the following argument
+   * so that each copy of CiviCRM will not interfere with other copies.  If you only
+   * have one copy of CiviCRM, you may leave this set to ''.  A good value for
+   * this if you have two servers might be 'server1_' for the first server, and
+   * 'server2_' for the second server.
+   */
+  define( 'CIVICRM_MEMCACHE_PREFIX', '' );
 
 
 
