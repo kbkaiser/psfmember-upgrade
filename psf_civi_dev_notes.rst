@@ -659,7 +659,7 @@ Repeat for CiviCRM 4.5.8
 
 Repeat for CiviCRM 4.6.27
 
-Navigate to dev-r6.psfmember.org/update.php to do a database update.
+Navigate to dev-rs7.psfmember.org/update.php to do a database update.
 
 .. Turn off Drupal and Civi debugging
 
@@ -669,4 +669,4 @@ Take the D7 site out of maintenance mode.
 
 Research how to replace the missing Front Page module.
 
-You can also take dev-d6.psfmember.org out of maintenance mode, if useful.
+You can also take the D6 site dev-rs6.psfmember.org out of maintenance mode, if useful.
