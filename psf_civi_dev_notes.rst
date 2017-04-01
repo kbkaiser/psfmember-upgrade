@@ -248,7 +248,9 @@ Download  the CiviCRM Files Needed for Upgrade
 ================================================
 
 These files are available from
-https://sourceforge.net/projects/civicrm/files/civicrm-stable/ ::
+https://sourceforge.net/projects/civicrm/files/civicrm-stable/
+
+Download them to ``/etc/drupal/6/sites/all/modules/``::
 
   3.4.8-drupal
   4.1.6-drupal6
@@ -675,4 +677,4 @@ Take the D7 site out of maintenance mode.
 
 Research how to replace the missing Front Page module.
 
-You can also take the D6 site dev-rs6.psfmember.org out of maintenance mode, if useful.
+(You can also take the D6 site dev-rs6.psfmember.org out of maintenance mode, if useful.)
