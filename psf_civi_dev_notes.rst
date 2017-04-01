@@ -239,7 +239,7 @@ Enable the site and restart apache::
 
 (Set the Rackspace Cloud DNS to get an A record for dev-rs6.psfmember.org)
 
-Navigate to dev-rs6.psfmember.org, log in, and check the site.  Review the
+Navigate to http://dev-rs6.psfmember.org, log in, and check the site.  Review the
 Drupal status report and confirm we have php 5.3.
 
 .. * 29 March 2017:
@@ -487,7 +487,7 @@ Set update free access::
   edit /etc/drupal/7/sites/psfmember.org
   Change: $update_free_access = TRUE;
 
-Navigate to dev-rs7.psfmember.org/update.php
+Navigate to http://dev-rs7.psfmember.org/update.php
 
 This will spin for a couple of minutes, and then open the update
 webpage. Continue with the update.  The next screen will be a list of changes.
@@ -498,10 +498,10 @@ Clear update free access::
   edit /etc/drupal/7/sites/psfmember.org
   Change: $update_free_access = FALSE;
 
-Navigate to dev-rs7.psfmember.org/login/ and log in as Drupal user 1. In this
+Navigate to http://dev-rs7.psfmember.org/login/ and log in as Drupal user 1. In this
 case, that is user psf.
 
-Navigate to dev-rs7.psfmember.org/civicrm/  
+Navigate to http://dev-rs7.psfmember.org/civicrm/  
 
 You are now running CiviCRM 4.1.6 in D7.
 
@@ -636,7 +636,7 @@ Restart mysql::
  # service mysql restart 
 
 
-Navigate to dev-rs7.psfmember.org/civicrm/upgrade?reset=1
+Navigate to http://dev-rs7.psfmember.org/civicrm/upgrade?reset=1
 
 Note: there are four contribution records in this clone that are multiply
 linked.  They will be deleted from the production site.  Here, accept the
@@ -667,7 +667,7 @@ Repeat for CiviCRM 4.5.8
 
 Repeat for CiviCRM 4.6.27
 
-Navigate to dev-rs7.psfmember.org/update.php to do a database update.
+Navigate to http://dev-rs7.psfmember.org/update.php to do a database update.
 
 .. Turn off Drupal and Civi debugging
 
@@ -677,4 +677,4 @@ Take the D7 site out of maintenance mode.
 
 Research how to replace the missing Front Page module.
 
-(You can also take the D6 site dev-rs6.psfmember.org out of maintenance mode, if useful.)
+(You can also take the D6 site http://dev-rs6.psfmember.org out of maintenance mode, if useful.)
