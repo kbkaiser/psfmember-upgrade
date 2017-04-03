@@ -671,8 +671,6 @@ Repeat for CiviCRM 4.5.8
 
 Repeat for CiviCRM 4.6.27
 
-Navigate to http://dev-rs7.psfmember.org/update.php to do a database update.
-
 .. Turn off Drupal and Civi debugging
 
 .. Evaluate later whether mysql binary logging can be switched back on.
@@ -689,6 +687,7 @@ Enable the following modules::
   CiviGroup Roles Sync
   CiviMember Roles Sync
 
+Navigate to http://dev-rs7.psfmember.org/update.php to do a database update.
 
 Take the D7 site out of maintenance mode.
 
