@@ -268,9 +268,9 @@ Take the Drupal site offline
 
 Disable all the CiviCRM modules except the base module. Leave that enabled.
 
-Disable the Drupal devel and frontpage modules, then uninstall them.  Delete
-their files. Do the same for the CiviCRM theme module. Remove the SimplyCivi
-files from ``.../sites/all/themes/``
+Disable the Drupal devel module, then uninstall it.  Delete its files. Do the
+same for the CiviCRM theme module. Remove the SimplyCivi files from
+``.../sites/all/themes/``
 
 Disable LogToboggan and LoginToboggan Rules Integration
 
@@ -521,6 +521,7 @@ Uninstall D6 Modules:  The following modules need to be disabled and uninstalled
   Advanced Help
   Civicrm Theme
   Ckeditor
+  Front Page
   Jquery Update
   Logintoboggan
   Node Privacy by Role
@@ -534,12 +535,15 @@ Download and install D7 versions of the following modules::
   Advanced Help
   Ckeditor
   Entity API
+  Front Page
   Jquery Update
   Logintoboggan
   Rules
   Wysiwyg Version 7.x-2.2 only!
 
 Enable those modules.
+
+Perform a Drupal update: Navigate to http://dev-rs7.psfmember.org/update.php
 
 Shutdown and take a Rackspace image.
 
@@ -673,8 +677,23 @@ Navigate to http://dev-rs7.psfmember.org/update.php to do a database update.
 
 .. Evaluate later whether mysql binary logging can be switched back on.
 
+Enable the following modules::
+
+  Rules UI
+  Rules Scheduler
+
+  Advanced Help
+  Logintoboggan Rules Integration
+  
+  CiviCRM Rules Integration
+  CiviGroup Roles Sync
+  CiviMember Roles Sync
+
+
 Take the D7 site out of maintenance mode.
 
-Research how to replace the missing Front Page module.
+.. (Research how to replace the missing Front Page module.)
+
+.. It turned out that the Front Page module was fine, it was the frontpage module that was broken.  Go back to the Drupal module upgrade section above and simply download and install Front Page
 
 (You can also take the D6 site http://dev-rs6.psfmember.org out of maintenance mode, if useful.)
