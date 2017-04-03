@@ -680,7 +680,6 @@ Enable the following modules::
   Rules UI
   Rules Scheduler
 
-  Advanced Help
   Logintoboggan Rules Integration
   
   CiviCRM Rules Integration
