@@ -695,3 +695,14 @@ Take the D7 site out of maintenance mode.
 .. It turned out that the Front Page module was fine, it was the frontpage module that was broken.  Go back to the Drupal module upgrade section above and simply download and install Front Page
 
 (You can also take the D6 site http://dev-rs6.psfmember.org out of maintenance mode, if useful.)
+
+Fix the CiviCRM complaint that curl is not installed::
+
+  apt-get install php5-curl
+  
+  Clear the Drupal caches
+
+  Navigate to http://dev-rs7.psfmember.org/civicrm/admin/setting/component/
+
+  Click on Save
+
