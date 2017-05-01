@@ -706,3 +706,16 @@ Fix the CiviCRM complaint that curl is not installed::
 
   Click on Save
 
+Add to /etc/drupal/7/htaccess to hide the .txt files from access or inspection::
+
+  # Prevent access or indication of presence of *.txt files
+  RewriteCond %{REQUEST_FILENAME} !robots.txt
+  RewriteRule \.txt$ - [R=404,L]
+
+The site is upgraded to Drupal 7 and CiviCRM 4.6.27.
+
+Shutdown the Rackspace server and take a snapshot::
+
+  psfmember-dev-5.3-d7-4.6.27-final
+
+Destroy the psfmember-dev server.
